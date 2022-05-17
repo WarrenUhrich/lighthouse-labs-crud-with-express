@@ -8,5 +8,18 @@
 </head>
 <body>
     <h1>Index</h1>
+    <ul>
+        <% for (const pet of petsDB) { %>
+            <li>
+                <h2><%= pet.name %></h2>
+                <p>
+                    This pet is
+                    <%= pet.age %>
+                    years old, and is a(n)
+                    <%= pet.type %>.
+                </p>
+            </li>
+        <% } %>
+    </ul>
 </body>
 </html>

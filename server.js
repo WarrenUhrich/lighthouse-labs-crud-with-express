@@ -68,6 +68,41 @@ app.post('/new', (req, res) => {
     res.redirect('/');
 });
 
+/**
+ * Update (Show Form)
+ */
+app.get('/edit/:id', (req, res) => {
+    const id = req.params.id;
+
+    const pet = petsDB[id];
+
+    // Checking if pet was retrieved.
+    console.log(pet);
+
+    res.render('edit', {id: id, pet: pet});
+});
+
+app.post('/edit/:id', (req, res) => {
+    // Retrieve existing pet ID.
+    const id = req.params.id;
+
+    // Form an updated version of the pet.
+    const name = req.body.name;
+    const age = req.body.age;
+    const type = req.body.type;
+    const updatedPet = {
+        name: name,
+        age: age,
+        type: type
+    };
+
+    // Replace old pet with new pet object.
+    petsDB[id] = updatedPet;
+
+    // Send to index after update.
+    res.redirect('/');
+});
+
 //////////////////////////////////////////////////////////////////////
 // Server listening...
 //////////////////////////////////////////////////////////////////////

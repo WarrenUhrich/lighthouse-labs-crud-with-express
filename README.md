@@ -30,3 +30,13 @@ myblog.com?id=3
 
 * Not easily bookmarkable / reproducable
 * Does not show submission values in address bar / URL.
+
+## EJS
+
+Used for making modularized HTML within a node.js back-end.
+
+* Separation of Concerns
+* Write HTML without formatting as a string
+* Sprinkle in some JS logic / expressions if/where you need to
+
+`/views`

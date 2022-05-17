@@ -40,3 +40,21 @@ Used for making modularized HTML within a node.js back-end.
 * Sprinkle in some JS logic / expressions if/where you need to
 
 `/views`
+
+## Our Project Notes!
+
+```JavaScript
+// &
+// q = Node.js Documentation
+
+/** https://www.google.com/search?q=Node.js+Documentation
+ * Consider the resources / paths / methods...
+ * 
+ * CREATE:  GET     /new        Form for new pet.
+ * SAVE:    POST    /new        Create the new pet.
+ * READ:    GET     /           Index of Pets (Displays All)
+ * EDIT:    GET     /edit/:id   Render populated form.
+ * UPDATE:  POST    /edit/:id   Update pet resource.
+ * DELETE:  POST    /delete/:id Remove pet resource.
+ */
+ ```

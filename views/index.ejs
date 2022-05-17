@@ -9,9 +9,14 @@
 <body>
     <h1>Index</h1>
     <ul>
-        <% for (const pet of petsDB) { %>
+        <% petsDB.forEach((pet, id) => { %>
             <li>
-                <h2><%= pet.name %></h2>
+                <h2>
+                    <%= pet.name %>
+                    <a href="/edit/<%= id %>">
+                        Edit
+                    </a>
+                </h2>
                 <p>
                     This pet is
                     <%= pet.age %>
@@ -19,7 +24,7 @@
                     <%= pet.type %>.
                 </p>
             </li>
-        <% } %>
+        <% }) %>
     </ul>
 </body>
 </html>

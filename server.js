@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
 const PORT = 3000;
 const app = express();
@@ -12,6 +13,7 @@ app.set('view engine', 'ejs');
 //////////////////////////////////////////////////////////////////////
 
 app.use(morgan('dev'));
+app.use(bodyParser({extended: true}));
 
 //////////////////////////////////////////////////////////////////////
 // Database...
@@ -42,6 +44,28 @@ app.get('/', (req, res) => {
  */
 app.get('/new', (req, res) => {
     res.render('new');
+});
+
+/**
+ * Create (Form Submission)
+ */
+app.post('/new', (req, res) => {
+    const name = req.body.name;
+    const age = req.body.age;
+    const type = req.body.type;
+    const pet = {
+        name: name,
+        age: age,
+        type: type
+    };
+    // Check if our pet is formed correctly.
+    console.log(pet);
+
+    // Add pet to array (our mock database!)
+    petsDB.push(pet);
+
+    // Redirect to full list of pets.
+    res.redirect('/');
 });
 
 //////////////////////////////////////////////////////////////////////

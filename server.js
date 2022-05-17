@@ -82,6 +82,9 @@ app.get('/edit/:id', (req, res) => {
     res.render('edit', {id: id, pet: pet});
 });
 
+/**
+ * Update (Update Pet DB)
+ */
 app.post('/edit/:id', (req, res) => {
     // Retrieve existing pet ID.
     const id = req.params.id;
@@ -100,6 +103,18 @@ app.post('/edit/:id', (req, res) => {
     petsDB[id] = updatedPet;
 
     // Send to index after update.
+    res.redirect('/');
+});
+
+/**
+ * Delete
+ */
+app.post('/delete/:id', (req, res) => {
+    const id = req.params.id;
+
+    // Remove 1 element at index number in array.
+    petsDB.splice(id, 1);
+
     res.redirect('/');
 });
 

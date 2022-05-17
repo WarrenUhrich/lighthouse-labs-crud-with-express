@@ -64,6 +64,14 @@ Different resources may require different routes. Does the resource you're worki
  */
  ```
 
+## Nodemon
+
+We use nodemon to avoid having to restart our server when making changes.
+
+## Morgan
+
+Morgan adds additional logging per-request to our server. Note that `304` means the page has not been changed since the last serve; the browser has decided to use the copy it has in memory opposed to actually downloading HTML from the server an additional time.
+
 ## Resources
 
 * [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)

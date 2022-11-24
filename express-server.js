@@ -3,6 +3,7 @@ const morgan = require('morgan'); // logging tool
 
 const PORT = 8080;
 const app = express();
+app.set('view engine', 'ejs');
 
 ///////////////////////////////////////////////////////
 // Middleware
@@ -36,13 +37,27 @@ app.get('/', (req, res) => {
 
 // INDEX (ALL PETS)
 app.get('/pets', (req, res) => {
-    const webString = `
-        <!DOCTYPE html>
-        <html>
-            ${}
-        </html>
-    `;
-    res.end(JSON.stringify(database));
+    const templateVars = {
+        pi: 3.14,
+        pets: database // our DB object
+    };
+
+    // 2 args: EJS PATH, Template Variables OBJ
+    res.render('pets/index', templateVars);
+});
+
+// SHOW (INDIVDUAL PET)
+app.get('/pets/:id', (req, res) => {
+    // console.log('req.params:', req.params);
+    const petID = req.params.id;
+
+    const pet = database[petID];
+    
+    const templateVars = {
+        pet: pet
+    };
+
+    res.render('pets/show', templateVars);
 });
 
 ///////////////////////////////////////////////////////

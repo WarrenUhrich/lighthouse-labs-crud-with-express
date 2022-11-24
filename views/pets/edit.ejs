@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Pet Form</title>
+    <title>Edit Pet Form</title>
 </head>
 <body>
-    <h1>New Pet Form</h1>
+    <h1>Edit Pet Form</h1>
 
     <nav><a href="/pets/">View All Pets</a></nav>
 
-    <form method="POST" action="/pets">
+    <form method="POST" action="/pets/<%= id %>">
         <label>
             Name:
-            <input name="name">
+            <input name="name" value="<%= pet.name %>">
         </label>
 
         <label>
             Age:
-            <input name="age">
+            <input name="age" value="<%= pet.age %>">
         </label>
 
         <label>
             Type:
-            <input name="type">
+            <input name="type" value="<%= pet.type %>">
         </label>
 
-        <input type="submit" value="Add Pet">
+        <input type="submit" value="Update Pet">
     </form>
 
 </body>

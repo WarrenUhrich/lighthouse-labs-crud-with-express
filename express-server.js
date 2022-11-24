@@ -91,6 +91,54 @@ app.get('/pets/:id', (req, res) => {
     res.render('pets/show', templateVars);
 });
 
+/**
+ * UPDATE
+ */
+
+// EDIT PET FORM SHOW
+app.get('/pets/:id/edit', (req, res) => {
+    const petID = req.params.id;
+
+    const pet = database[petID];
+
+    const templateVars = {
+        id: petID,
+        pet: pet
+    };
+
+    res.render('pets/edit', templateVars);
+});
+
+// EDIT PET FORM SUBMISSION
+app.post('/pets/:id', (req, res) => {
+    const petID = req.params.id;
+
+    const updatedPet = {
+        name: req.body.name,
+        age: parseInt(req.body.age),
+        type: req.body.type
+    };
+
+    // Update pet in DB.
+    database[petID] = updatedPet;
+
+    // Use the SHOW route to view the pet you made!
+    res.redirect(`/pets/${petID}`);
+});
+
+/**
+ * DELETE
+ */
+
+app.post('/pets/:id/delete', (req, res) => {
+    const petID = req.params.id;
+
+    // Remove pet from database object
+    delete database[petID];
+
+    res.redirect('/pets');
+});
+
 ///////////////////////////////////////////////////////
 // Server Listening...
 ///////////////////////////////////////////////////////

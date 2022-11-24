@@ -51,3 +51,14 @@ DELETE    POST        /pets/:id/delete # DELETE specific pet
 * EJS is back-end, and helps us format a string BEFORE it is sent to the browser
 * EJS does NOT run in a browser, and must be run in a back-end only
 * Separation of concerns
+
+<form method="GET" action="https://google.com/search">
+    <input name="q">
+
+
+https://google.com/search?blog_id=25
+
+
+<form method="POST" action="https://site.com/sign-in">
+    <input name="user">
+    <input name="pass">

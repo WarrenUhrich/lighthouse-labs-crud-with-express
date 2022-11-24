@@ -10,6 +10,7 @@ app.set('view engine', 'ejs');
 ///////////////////////////////////////////////////////
 
 app.use(morgan('dev'));
+app.use(express.urlencoded({extended: true}));
 
 ///////////////////////////////////////////////////////
 // Database
@@ -29,6 +30,36 @@ const database = {
 
 app.get('/', (req, res) => {
     res.end('hello!');
+});
+
+/**
+ * CREATE
+ */
+
+// NEW PET FORM SHOW
+app.get('/pets/new', (req, res) => {
+    res.render('pets/new');
+});
+
+// NEW PET FORM SUBMISSION
+app.post('/pets', (req, res) => {
+    // console.log('req.body', req.body);
+
+    // FORMAT: {name: 'Quorra',   age: 1, type: 'dog'}
+
+    const newPet = {
+        name: req.body.name,
+        age: parseInt(req.body.age),
+        type: req.body.type
+    };
+
+    const newPetID = `pet${Object.keys(database).length + 1}`;
+
+    // Add new pet to DB with generated key.
+    database[newPetID] = newPet;
+
+    // Use the SHOW route to view the pet you made!
+    res.redirect(`/pets/${newPetID}`);
 });
 
 /**

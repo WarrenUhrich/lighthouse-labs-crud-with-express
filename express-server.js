@@ -14,7 +14,13 @@ app.use(morgan('dev'));
 // Database
 ///////////////////////////////////////////////////////
 
-const database = [];
+const database = {
+    pet1: {name: 'Quorra',   age: 1, type: 'dog'},
+    pet2: {name: 'Marie',    age: 3, type: 'cat'},
+    pet3: {name: 'Stanley',  age: 4, type: 'cat'},
+    pet4: {name: 'Milly',    age: 4, type: 'dog'},
+    pet5: {name: 'Tobi',     age: 2, type: 'dog'}
+};
 
 ///////////////////////////////////////////////////////
 // Routes
@@ -22,6 +28,21 @@ const database = [];
 
 app.get('/', (req, res) => {
     res.end('hello!');
+});
+
+/**
+ * READ
+ */
+
+// INDEX (ALL PETS)
+app.get('/pets', (req, res) => {
+    const webString = `
+        <!DOCTYPE html>
+        <html>
+            ${}
+        </html>
+    `;
+    res.end(JSON.stringify(database));
 });
 
 ///////////////////////////////////////////////////////

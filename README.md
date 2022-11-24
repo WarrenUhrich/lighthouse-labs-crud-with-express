@@ -43,3 +43,11 @@ UPDATE    GET         /pets/:id/edit   # Display EDIT PET form
 UPDATE    POST        /pets/:id        # EDIT PET form submission
 DELETE    POST        /pets/:id/delete # DELETE specific pet
 ```
+
+## EJS (Embedded JavaScript)
+
+* Helps us format HTML strings
+* You can sprinkle bits of JS logic in EJS files
+* EJS is back-end, and helps us format a string BEFORE it is sent to the browser
+* EJS does NOT run in a browser, and must be run in a back-end only
+* Separation of concerns

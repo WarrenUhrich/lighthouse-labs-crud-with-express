@@ -1,31 +1,26 @@
 # Lighthouse Labs | CRUD with Express
 
+[GitHub Repository Branch](https://github.com/WarrenUhrich/lighthouse-labs-crud-with-express/tree/2023-05-25-web-flex-day-17april2023) | [Vimeo Video Recording](https://vimeo.com/830332734/b387b909e1?share=copy)
+
 * [X] Express
 * [X] Routes
 * [X] CRUD
-* [ ] EJS Templates
+* [X] EJS Templates
+
+## Running this Experiment
+
+```shell
+npm install
+node express-server.js
+```
+
+Navigate to [http://localhost:8080/ping](http://localhost:8080/ping) to confirm the project is running.
+
+Navigate to [http://localhost:8080/pets](http://localhost:8080/pets) to begin exploring the CRUD application!
 
 ## Express! What is it good for!?
 
 It is a node.js framework for building HTTP web servers, easily accepting requests and sending responses.
-
-## CRUD
-
-What is CRUD? Any time we're dealing with a resource (blog post, video, user profile) we should consider which of CRUD are appropriate.
-
-* INDEX
-* CREATE
-* READ
-* UPDATE
-* DELETE
-* EDIT
-* SAVE
-
-* Browse
-* Read
-* Edit
-* Add
-* Delete
 
 ## Resource / Data
 
@@ -45,32 +40,13 @@ Pets!
 }
 ```
 
-## Routes
+## CRUD
 
-GET - implied we want to receive data
-    * Appears in address as key-value pairs
-    * Can be easily shared, bookmarked
-    * Can be easily repeated
-
-POST - convention, might be updating/creating something
-    * Submits data in the body of your request
-    * Not easily repeatable
-
-https://google.com/search?q=JavaScript+MDN
-<form method="GET" action="/search">
-    <input name="q">
-
-
-<form method="POST" action="/sign-in">
-    <input name="username">
-    <input name="password">
-
-iCRUDES
+What is CRUD? Any time we're dealing with a resource (blog post, video, user profile) we should consider which of CRUD are appropriate.
 
 ```
 CRUD      | Method     | Path              | Purpose
-
-=================================================================
+=========================================================================
 
 CREATE    | GET        | /pets/new         | Display the "new pet" form
 SAVE      | POST       | /pets             | Submit the "new pet" form
@@ -83,3 +59,51 @@ EDIT      | GET        | /pets/:key/edit   | Display the "edit pet" form
 
 DELETE    | POST       | /pets/:key/delete | Submit the "delete pet" form
 ```
+
+## EJS (Embedded JavaScript)
+
+* Helps us format HTML strings
+* You can sprinkle bits of JS logic in EJS files
+* EJS is back-end, and helps us format a string BEFORE it is sent to the browser
+* EJS does NOT run in a browser, and must be run in a back-end only
+* Separation of concerns
+
+## GET vs. POST Forms
+
+### GET
+
+* Is able to send a request with query parameters (right in the URL / address bar)
+* Easy to share / reproduce
+* Great for searches and reaching resources consistently
+
+`myblog.com?id=3`
+
+OR
+
+```HTML
+<form method="GET" action="https://google.com/search">
+    <input name="q">
+```
+
+`https://google.com/search?q=query+parameter+strings`
+
+### POST
+
+* Not easily bookmarkable / reproducable
+* Does not show submission values in address bar / URL
+* Great for sign-ins, edits, etc. -> actions you don't want as easily repeated or visible
+
+```HTML
+<form method="POST" action="https://site.com/sign-in">
+    <input name="user">
+    <input name="pass">
+```
+
+## Resources
+
+* [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+* [Express](https://expressjs.com/)
+* [EJS](https://ejs.co/#install)
+* [`body-parser`](https://www.npmjs.com/package/body-parser)
+* [Morgan](https://expressjs.com/en/resources/middleware/morgan.html)
+* [Nodemon](https://github.com/remy/nodemon#nodemon)

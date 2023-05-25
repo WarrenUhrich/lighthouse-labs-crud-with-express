@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pets Index</title>
+    </head>
+    <body>
+        <h1>Pets Index</h1>
+
+        <p>Pi is: <%= PI %></p>
+
+        <nav>
+            <a href="/pets/new">
+                Create a Pet
+            </a>
+        </nav>
+
+        <ul>
+
+            <% for(const petName in pets) { %>
+
+                <li>
+                    <a href="/pets/<%= petName %>">
+                        <%= petName // "=" prints result of this expression %>
+                    </a>
+
+                    (<a href="/pets/<%= petName %>/edit">Edit</a>)
+                </li>
+
+            <% } // for..in pets %>
+
+        </ul>
+
+    </body>
+</html>

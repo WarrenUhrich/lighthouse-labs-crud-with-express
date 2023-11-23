@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW PET</title>
+</head>
+<body>
+    <h1>NEW PET</h1>
+    <nav>
+        <a href="/pets">
+            Back to All Pets
+        </a>
+    </nav>
+    <!-- S  POST  /pets              # Submission of create/new form -->
+    <form method="POST" action="/pets">
+        <label for="name-field">
+            Name:
+        </label>
+        <input type="text" id="name-field" name="name">
+
+        <label for="type-field">
+            Type:
+        </label>
+        <input type="text" id="type-field" name="type">
+
+        <label for="age-field">
+            Age:
+        </label>
+        <input type="number" id="age-field" name="age">
+
+        <!-- <input type="submit" value="Create New Pet"> -->
+        <button type="submit">Create New Pet</button>
+    </form>
+</body>
+</html>

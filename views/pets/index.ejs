@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PETS INDEX</title>
+    </head>
+    <body>
+        <h1>PETS INDEX</h1>
+        <nav>
+            <a href="/pets/new">
+                Create a New Pet
+            </a>
+        </nav>
+        <ul>
+            <% for(const name in pets) { %>
+
+                <li>
+                    <a href="/pets/<%= name %>">
+                        <%= name %>
+
+                        <a href="/pets/<%= name %>/edit">
+                            Edit
+                        </a>
+
+                        <form method="POST" action="/pets/<%= name %>/delete">
+                            <button type="submit">
+                                Delete
+                            </button>
+                        </form>
+                    </a>
+                </li>
+
+            <% } // End of for %>
+        </ul>
+        
+    </body>
+</html>

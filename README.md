@@ -1,2 +1,6 @@
-# lighthouse-labs-crud-with-express
-Lighthouse Labs "CRUD with Express" lecture.
+# Lighthouse Labs | CRUD with Express
+
+* [ ] Express
+* [ ] Routes
+* [ ] CRUD
+* [ ] EJS Templates

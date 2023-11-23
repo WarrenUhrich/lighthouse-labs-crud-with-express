@@ -1,5 +1,7 @@
 # Lighthouse Labs | CRUD with Express
 
+[GitHub Repository Branch](https://github.com/WarrenUhrich/lighthouse-labs-crud-with-express/tree/2023.11.23-web-flex-day-16october2023) | [Vimeo Video Recording](https://vimeo.com/887779334/b72b076dbc?share=copy)
+
 * [X] Express
 * [X] Routes
 * [X] CRUD
